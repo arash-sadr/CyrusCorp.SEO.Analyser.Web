@@ -1,0 +1,124 @@
+﻿@model CyrusCorp.SEO.Analyser.Web.Models.AnalysisResultModel
+    @{
+        //ViewData["Title"] = "Home Page";
+    }
+
+    <link href="/Content/bootstrap.css" rel="stylesheet">
+    <link href="/Content/site.css" rel="stylesheet">
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+    <script src="/Scripts/jquery-3.3.1.js"></script>
+    <script src="/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+    @Html.ActionLink("Back", "Analyze", "Home", new { @class = "btn btn-default" })
+    @*<asp:button id="backButton" runat="server" text="Back"
+                OnClientClick="JavaScript:window.history.back(1);return false;"></asp:button>*@
+    
+<div class="col-sm-12">
+        <h3>Word Occurance</h3>
+        @if (!(Model.OccuredWords == null) && Model.OccuredWords.Count > 0)
+        {
+            <table class="datatable table table-striped table-bordered table-hover" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="sorting_asc">
+                            Word
+                        </th>
+                        <th class="sorting_asc">
+                            Occurance
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OccuredWords)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Key)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <span>nothing returned</span>
+        }
+
+        <h3>Meta Word Occurance</h3>
+        @if (!(Model.MetaTagWords == null) && Model.MetaTagWords.Count > 0)
+        {
+            <table class="datatable table table-striped table-bordered table-hover" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Word
+                        </th>
+                        <th>
+                            Occurance
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MetaTagWords)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Key)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <span>nothing returned</span>
+        }
+
+        <h3>External Links</h3>
+        @if (!(Model.ExternalLinksList == null) && Model.ExternalLinksList.Count > 0)
+        {
+            <table class="datatable table table-striped table-bordered table-hover" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Links
+                        </th>
+                        @*<th>
+                            Occurance
+                        </th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ExternalLinksList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.Value)
+                            </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <span>nothing returned</span>
+        }
+    </div>

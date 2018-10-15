@@ -1,0 +1,62 @@
+﻿@model CyrusCorp.SEO.Analyser.Web.Models.AnalyzeCaseViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="/Scripts/modernizr-2.8.3.js"></script>
+<script src="/Scripts/jquery-3.3.1.js"></script>
+<script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+<div class="row">
+    @using (Ajax.BeginForm(new AjaxOptions()
+    {
+        Url = "/Home/Analyze",
+        AllowCache = false,
+        HttpMethod = "Post",
+        UpdateTargetId = "analysisSummary",
+        InsertionMode = InsertionMode.Replace,
+    }))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <div class="col-md-12">
+                <h3>Please enter your desired entry for SEO analysis (URL or English Text)</h3>
+            </div>
+
+            <legend></legend>
+            <div class="col-md-12">
+                <div class="control-group">
+                    @Html.TextAreaFor(m => m.Text, 7, 10, new { @class = "form-control", resize = "none", autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div>
+                <hr />
+                <div>
+                    <ul>
+                        @Html.CheckBoxFor(m => m.IsURL, new { text = "I'm analyzing a URL", autosubmit = "false" })
+                        <lable> I'm analysing a URL </lable>
+                        <input type="submit" value="Analyze" class="btn btn-default buttonAnalyze" />
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <div class="control-group">
+                <ul>@Html.CheckBoxFor(m => m.IsCheckingNumberOfWords, new { @checked = "checked", autosubmit = "false" })<lable> Show Word Occurance</lable></ul>
+                <ul>@Html.CheckBoxFor(m => m.IsListingMetaTags, new { @checked = "checked", autosubmit = "false" })<lable> Show Meta Tag Word Occurance</lable></ul>
+                <ul>@Html.CheckBoxFor(m => m.IsListingExternalLinks, new { @checked = "checked", autosubmit = "false" })<lable> Show The External Links</lable></ul>
+            </div>
+        </fieldset>
+
+    }
+
+    <div class="analysisSummary"></div>
+</div>
+
+<script>
+                            //$(document).ready(function () {
+                            //    $('.buttonAnalyze').click(function () {
+                            //        $('.analysisSummary').load("/Home/Analyze", new Object());
+                            //    });
+                            // });
+</script>
