@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\ExceptionItem.cs" />
-    <Compile Include="Provider\LogProvider.cs" />
     <Compile Include="Services\ExceptionService.cs" />
     <Compile Include="Interfaces\IExceptionService.cs" />
     <Compile Include="Services\AnalyzeService.cs" />
@@ -75,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Provider\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

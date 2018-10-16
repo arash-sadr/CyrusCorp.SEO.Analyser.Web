@@ -17,7 +17,7 @@ namespace CyrusCorp.SEO.Analyzer.Core
             try
             {
                 HandleErrorManagement(identifier, exceptionItem, ex);
-                //await _logProvider.PublishError("RegisterSearchText", exceptionItem);
+                // TODO : LOG PROVIDER TO FILE WRITE THE LOG
             }
             catch (Exception)
             {

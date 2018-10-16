@@ -5,9 +5,9 @@ namespace CyrusCorp.SEO.Analyzer.Core
     public interface IAnalyzeService
     {
 
-        Dictionary<string, int> GetWordOccurancesFromText(string text);
+        Dictionary<string, int> GetWordOccurrencesFromText(string text);
 
-        Dictionary<string, int> GetWordOccurancesFromUrl(string url);
+        Dictionary<string, int> GetWordOccurrencesFromUrl(string url);
 
         Dictionary<string, int> GetMetaTagWordsFromText(string text);
 

@@ -22,7 +22,7 @@ namespace CyrusCorp.SEO.Analyser.Web.Controllers
         }
 
         //
-        // GET: /Account/Login
+        // GET: /Home/Analyze
         [HttpGet]
         public ActionResult Analyze(string returnUrl = null)
         {
@@ -31,7 +31,7 @@ namespace CyrusCorp.SEO.Analyser.Web.Controllers
         }
 
         //
-        // POST: /Account/Login
+        // POST: /Home/Analyze
         [HttpPost]
         public ActionResult Analyze(AnalyzeCaseViewModel model)
         {
@@ -45,18 +45,18 @@ namespace CyrusCorp.SEO.Analyser.Web.Controllers
                 {
                     if (!AnalyzeHelper.IsURLText(model.Text))
                     {
-                        ModelState.AddModelError("Text", "Please type the URL in correct patten: http://www.example.com");
+                        ModelState.AddModelError("Text", "Please type the URL in correct pattern: http://www.example.com");
                         return View(model);
                     }
                     
-                    if (model.IsCheckingNumberOfWords) resultModel.OccuredWords = _analyzeService.GetWordOccurancesFromUrl(model.Text);
+                    if (model.IsCheckingNumberOfWords) resultModel.OccuredWords = _analyzeService.GetWordOccurrencesFromUrl(model.Text);
                     if (model.IsListingMetaTags) resultModel.MetaTagWords = _analyzeService.GetMetaTagWordsFromUrl(model.Text);
                     if (model.IsListingExternalLinks) resultModel.ExternalLinksList = _analyzeService.GetExternalLinksFromText (model.Text);
                    
                 }
                 else
                 {
-                    if (model.IsCheckingNumberOfWords) resultModel.OccuredWords = _analyzeService.GetWordOccurancesFromText(model.Text);
+                    if (model.IsCheckingNumberOfWords) resultModel.OccuredWords = _analyzeService.GetWordOccurrencesFromText(model.Text);
                     if (model.IsListingMetaTags) resultModel.MetaTagWords = _analyzeService.GetMetaTagWordsFromText(model.Text);
                     if (model.IsListingExternalLinks) resultModel.ExternalLinksList = _analyzeService.GetExternalLinksFromText(model.Text);
 

@@ -20,7 +20,7 @@
                 OnClientClick="JavaScript:window.history.back(1);return false;"></asp:button>*@
     
 <div class="col-sm-12">
-        <h3>Word Occurance</h3>
+        <h3>Word Occurrence</h3>
         @if (!(Model.OccuredWords == null) && Model.OccuredWords.Count > 0)
         {
             <table class="datatable table table-striped table-bordered table-hover" cellspacing="0">
@@ -30,7 +30,7 @@
                             Word
                         </th>
                         <th class="sorting_asc">
-                            Occurance
+                            Occurrence
                         </th>
                     </tr>
                 </thead>
@@ -54,7 +54,7 @@
             <span>nothing returned</span>
         }
 
-        <h3>Meta Word Occurance</h3>
+        <h3>Meta Word Occurrence</h3>
         @if (!(Model.MetaTagWords == null) && Model.MetaTagWords.Count > 0)
         {
             <table class="datatable table table-striped table-bordered table-hover" cellspacing="0">
@@ -64,7 +64,7 @@
                             Word
                         </th>
                         <th>
-                            Occurance
+                            Occurrence
                         </th>
                     </tr>
                 </thead>
@@ -98,7 +98,7 @@
                             Links
                         </th>
                         @*<th>
-                            Occurance
+                            Occurrence
                         </th>*@
                     </tr>
                 </thead>

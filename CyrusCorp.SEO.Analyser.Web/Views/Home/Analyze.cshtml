@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<script src="/Scripts/modernizr-2.8.3.js"></script>
 <script src="/Scripts/jquery-3.3.1.js"></script>
 <script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
 
@@ -32,19 +31,19 @@
                     @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                 </div>
                 <hr />
-                <div>
-                    <ul>
-                        @Html.CheckBoxFor(m => m.IsURL, new { text = "I'm analyzing a URL", autosubmit = "false" })
-                        <lable> I'm analysing a URL </lable>
-                        <input type="submit" value="Analyze" class="btn btn-default buttonAnalyze" />
-                    </ul>
+                <div class="control-group">
+                    <ul>@Html.CheckBoxFor(m => m.IsCheckingNumberOfWords, new { @checked = "checked", autosubmit = "false" })<lable> Show Word Occurrence</lable></ul>
+                    <ul>@Html.CheckBoxFor(m => m.IsListingMetaTags, new { @checked = "checked", autosubmit = "false" })<lable> Show Meta Tag Word Occurrence</lable></ul>
+                    <ul>@Html.CheckBoxFor(m => m.IsListingExternalLinks, new { @checked = "checked", autosubmit = "false" })<lable> Show The External Links</lable></ul>
                 </div>
             </div>
             <hr />
-            <div class="control-group">
-                <ul>@Html.CheckBoxFor(m => m.IsCheckingNumberOfWords, new { @checked = "checked", autosubmit = "false" })<lable> Show Word Occurance</lable></ul>
-                <ul>@Html.CheckBoxFor(m => m.IsListingMetaTags, new { @checked = "checked", autosubmit = "false" })<lable> Show Meta Tag Word Occurance</lable></ul>
-                <ul>@Html.CheckBoxFor(m => m.IsListingExternalLinks, new { @checked = "checked", autosubmit = "false" })<lable> Show The External Links</lable></ul>
+            <div>
+                <ul>
+                    @Html.CheckBoxFor(m => m.IsURL, new { text = "I'm analyzing a URL", autosubmit = "false" })
+                    <lable> I'm analysing a URL </lable>
+                    <input type="submit" value="Analyze" class="btn btn-default btn-danger buttonAnalyze" />
+                </ul>
             </div>
         </fieldset>
 
@@ -52,11 +51,3 @@
 
     <div class="analysisSummary"></div>
 </div>
-
-<script>
-                            //$(document).ready(function () {
-                            //    $('.buttonAnalyze').click(function () {
-                            //        $('.analysisSummary').load("/Home/Analyze", new Object());
-                            //    });
-                            // });
-</script>

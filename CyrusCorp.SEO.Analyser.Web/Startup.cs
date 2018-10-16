@@ -8,7 +8,6 @@ namespace CyrusCorp.SEO.Analyser.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
         }
     }
 }

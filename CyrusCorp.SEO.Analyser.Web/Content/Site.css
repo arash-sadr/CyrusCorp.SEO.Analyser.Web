@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 480px;
 }
+
+.navbar-inverse {
+    background-color: darkcyan !important;
+    border-color: darkcyan !important;
+    color: white !important;
+}
+    .navbar-inverse a {
+        color: white !important;
+    }
+.navbar-inverse a:hover {
+    color: chartreuse !important;
+}

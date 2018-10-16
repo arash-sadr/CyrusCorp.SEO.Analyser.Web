@@ -34,7 +34,7 @@ namespace CyrusCorp.SEO.Analyzer.Core
             get
             {
                 if (_stopWords.Count <= 0)
-                    _stopWords =  GetStopWords(STOPWORDS_PATH); //JsonConvert.DeserializeObject<IList<string>>(System.Configuration.ConfigurationSettings.AppSettings["StopWords"].ToString()).ToList();   //GetStopWords(STOPWORDS_PATH);
+                    _stopWords =  GetStopWords(STOPWORDS_PATH); 
                 return _stopWords;
             }
         }
@@ -45,7 +45,7 @@ namespace CyrusCorp.SEO.Analyzer.Core
             return true;
         }
 
-        public Dictionary<string, int> GetWordOccurancesFromText(string text)
+        public Dictionary<string, int> GetWordOccurrencesFromText(string text)
         {
             _exceptionService.ThrowIfNull(text, "url");
 
@@ -64,11 +64,11 @@ namespace CyrusCorp.SEO.Analyzer.Core
             }
             return result;
         }
-        public Dictionary<string, int> GetWordOccurancesFromUrl(string url)
+        public Dictionary<string, int> GetWordOccurrencesFromUrl(string url)
         {
             _exceptionService.ThrowIfNull(url, "url");
 
-            return GetWordOccurancesFromText(GetHTMLFromURL(url));
+            return GetWordOccurrencesFromText(GetHTMLFromURL(url));
         }
 
         public string GetTextFromHTML(string html)
@@ -86,9 +86,8 @@ namespace CyrusCorp.SEO.Analyzer.Core
             return HttpUtility.HtmlDecode(string.Join(" ", nodes.Select(x => x.InnerText)));
 
 
-            //if (string.IsNullOrEmpty(url)) return text;
-            //var text = string.Empty;
-
+            // TODO   IMPROVENT of the web crawler:
+            
             //try
             //{
             //    using (WebClient client = new WebClient())
