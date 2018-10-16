@@ -51,7 +51,7 @@ namespace CyrusCorp.SEO.Analyser.Web.Controllers
                     
                     if (model.IsCheckingNumberOfWords) resultModel.OccuredWords = _analyzeService.GetWordOccurrencesFromUrl(model.Text);
                     if (model.IsListingMetaTags) resultModel.MetaTagWords = _analyzeService.GetMetaTagWordsFromUrl(model.Text);
-                    if (model.IsListingExternalLinks) resultModel.ExternalLinksList = _analyzeService.GetExternalLinksFromText (model.Text);
+                    if (model.IsListingExternalLinks) resultModel.ExternalLinksList = _analyzeService.GetExternalLinksFromUrl(model.Text);
                    
                 }
                 else
